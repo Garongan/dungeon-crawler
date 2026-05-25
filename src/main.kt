@@ -8,8 +8,14 @@ import korlibs.image.format.*
 import korlibs.io.file.std.*
 import korlibs.math.geom.*
 import korlibs.math.interpolation.*
+import korlibs.korge.view.align.*
 
-suspend fun main() = Korge(windowSize = Size(512, 512), backgroundColor = Colors["#2b2b2b"]) {
+
+suspend fun main() = Korge(
+    windowSize = Size(720, 1280), // Portrait window
+    virtualSize = Size(180, 320),  // Resolusi portrait pixel art 9:16
+    backgroundColor = Colors["#1a1a2e"] // Tema Katakombe (Zone 2)
+) {
 	val sceneContainer = sceneContainer()
 
 	sceneContainer.changeTo { MyScene() }
@@ -24,7 +30,7 @@ class MyScene : Scene() {
 			rotation = maxDegrees
 			anchor(.5, .5)
 			scale(0.8)
-			position(256, 256)
+			centerOn(this@sceneMain) // Secara dinamis memposisikan gambar di tengah kontainer parent
 		}
 
 		while (true) {

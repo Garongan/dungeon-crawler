@@ -71,6 +71,32 @@ Gunakan perintah Gradle berikut untuk menjalankan game pada target spesifik:
 ./gradlew installAndroidDebug
 ```
 
+#### 🤖 Android Emulator (Rekomendasi saat Uji Coba Android)
+Kami menyediakan runner khusus yang mendeteksi AVD (Android Virtual Device) yang dikonfigurasi, menyalakan emulator, lalu memasang dan menjalankan game secara otomatis:
+
+```bash
+./run-android.sh
+```
+
+---
+
+### 📦 Membangun Proyek / Build Project
+
+Gunakan script `build.sh` untuk melakukan kompilasi dan pembuatan paket rilis/distribusi proyek:
+
+```bash
+./build.sh
+```
+
+Script ini mendukung menu interaktif untuk memilih target, atau argumen command-line untuk build otomatis:
+* **JVM executable Fat JAR**: `./build.sh jvm`
+* **Native macOS App Bundle**: `./build.sh macos`
+* **Android Release AAB**: `./build.sh android-release`
+* **Android Debug AAB**: `./build.sh android-debug`
+* **Web (JS Bundle)**: `./build.sh web-js`
+* **Web (Wasm Bundle)**: `./build.sh web-wasm`
+* **Build All Targets**: `./build.sh all`
+
 ---
 
 ## 📜 Panduan Gaya Kode & Arsitektur / Code Style & Engine Patterns
