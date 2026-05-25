@@ -1,42 +1,32 @@
-import korlibs.time.*
+import game.core.SceneNavigator
+import korlibs.image.color.*
 import korlibs.korge.*
 import korlibs.korge.scene.*
-import korlibs.korge.tween.*
 import korlibs.korge.view.*
-import korlibs.image.color.*
-import korlibs.image.format.*
-import korlibs.io.file.std.*
 import korlibs.math.geom.*
-import korlibs.math.interpolation.*
-import korlibs.korge.view.align.*
 
-
+/**
+ * Entry point utama game Kedalaman Tak Berujung.
+ *
+ * Menginisialisasi KorGE engine dengan resolusi portrait pixel art (180×320),
+ * mengonfigurasi SceneNavigator, dan menampilkan MainMenuScene.
+ */
 suspend fun main() = Korge(
-    windowSize = Size(720, 1280), // Portrait window
-    virtualSize = Size(180, 320),  // Resolusi portrait pixel art 9:16
-    backgroundColor = Colors["#1a1a2e"] // Tema Katakombe (Zone 2)
+    windowSize = Size(720, 1280),
+    virtualSize = Size(180, 320),
+    backgroundColor = Colors["#1a1a2e"]
 ) {
-	views.gameWindow.fullscreen = true // Memaksa jendela game berjalan secara fullscreen saat diluncurkan
-	val sceneContainer = sceneContainer()
+    views.gameWindow.fullscreen = true
 
-	sceneContainer.changeTo { MyScene() }
-}
+    val sceneContainer = sceneContainer()
 
-class MyScene : Scene() {
-	override suspend fun SContainer.sceneMain() {
-		val minDegrees = (-16).degrees
-		val maxDegrees = (+16).degrees
+    // Inisialisasi SceneNavigator dengan referensi sceneContainer dan ukuran virtual
+    SceneNavigator.init(
+        sceneContainer = sceneContainer,
+        virtualWidth = 180.0,
+        virtualHeight = 320.0
+    )
 
-		val image = image(resourcesVfs["korge.png"].readBitmap()) {
-			rotation = maxDegrees
-			anchor(.5, .5)
-			scale(0.8)
-			centerOn(this@sceneMain) // Secara dinamis memposisikan gambar di tengah kontainer parent
-		}
-
-		while (true) {
-			image.tween(image::rotation[minDegrees], time = 1.seconds, easing = Easing.EASE_IN_OUT)
-			image.tween(image::rotation[maxDegrees], time = 1.seconds, easing = Easing.EASE_IN_OUT)
-		}
-	}
+    // Navigasi ke scene pertama — MainMenuScene
+    SceneNavigator.goToMainMenu()
 }
