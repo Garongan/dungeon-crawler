@@ -20,4 +20,13 @@ object GameConstants {
      * untuk menentukan kecepatan pergerakan aktual di layar.
      */
     const val SPEED_CONVERSION_FACTOR = 40.0f
+
+    /** Durasi invincibility frame (i-frame) saat dodge dalam milidetik */
+    const val DODGE_DURATION_MS = 300L
+
+    /** Durasi cooldown dodge dalam milidetik */
+    const val DODGE_COOLDOWN_MS = 1500L
+
+    /** Faktor pengali kecepatan pergerakan saat dodge aktif (burst velocity) */
+    const val DODGE_BURST_MULTIPLIER = 3.0f
 }
