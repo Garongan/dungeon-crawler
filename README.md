@@ -41,10 +41,18 @@ Proyek ini dikelola menggunakan Gradle Kotlin DSL. Pastikan Anda telah memasang 
 
 ### Menjalankan Mode Pengembangan (Development Run)
 
-Gunakan perintah Gradle berikut untuk menjalankan game pada target yang diinginkan:
+#### 🔥 Hot Reload (Rekomendasi Utama saat Dev)
+Kami telah menyediakan runner khusus yang secara otomatis mendeteksi **Java 21** pada macOS Anda dan mengaktifkan fitur *hot reloading*. Setiap kali Anda melakukan perubahan kode dan menyimpannya di IDE, game akan memuat ulang perubahan tersebut secara instan tanpa perlu memulai ulang:
 
 ```bash
-# Menjalankan target JVM (Desktop Launcher - Sangat direkomendasikan saat dev)
+./run-hot.sh
+```
+
+#### Menjalankan Target Spesifik secara Manual
+Gunakan perintah Gradle berikut untuk menjalankan game pada target spesifik:
+
+```bash
+# Menjalankan target JVM (Desktop Launcher)
 ./gradlew runJvm
 
 # Menjalankan target Kotlin/JS di Browser
