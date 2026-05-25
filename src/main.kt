@@ -16,6 +16,7 @@ suspend fun main() = Korge(
     virtualSize = Size(180, 320),  // Resolusi portrait pixel art 9:16
     backgroundColor = Colors["#1a1a2e"] // Tema Katakombe (Zone 2)
 ) {
+	views.gameWindow.fullscreen = true // Memaksa jendela game berjalan secara fullscreen saat diluncurkan
 	val sceneContainer = sceneContainer()
 
 	sceneContainer.changeTo { MyScene() }

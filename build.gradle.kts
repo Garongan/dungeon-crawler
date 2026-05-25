@@ -5,7 +5,7 @@ plugins {
 }
 
 korge {
-	id = "com.sample.demo"
+	id = "com.sample.dungeoncrawler"
 
 // To enable all targets at once
 
@@ -21,7 +21,7 @@ korge {
 	// targetJs()
 	// targetWasmJs() // targetWasm() didepresiasi, gunakan targetWasmJs() jika ingin mengaktifkan
 	// targetIos()
-	// targetAndroid()
+	targetAndroid()
 
 	// Konfigurasi default background color pada build-level (misal untuk splash screen/canvas default)
 	// Catatan: Menggunakan format ARGB Int (0xff1a1a2e adalah warna gelap Katakombe / Zone 2)
@@ -32,6 +32,9 @@ korge {
 
 	// Mengatur orientasi game ke Portrait untuk target mobile/device
 	orientation = Orientation.PORTRAIT
+
+	// Mengaktifkan fullscreen secara default pada saat build
+	fullscreen = true
 }
 
 dependencies {

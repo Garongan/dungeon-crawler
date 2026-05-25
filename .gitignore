@@ -16,6 +16,7 @@ kotlin-js-store/
 
 # Local Configuration
 local.properties
+_originals
 
 # OS-specific Files
 .DS_Store
